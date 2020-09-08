@@ -136,7 +136,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for Interaction</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>x</span>, sort = <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -161,18 +161,19 @@ Defaults to TRUE.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># We train a tree on the Boston dataset:</span>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'>"rpart"</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"MASS"</span>)
-<span class='no'>rf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='no'>medv</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>)
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>rf</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'><a href='https://github.com/bethatkinson/rpart'>"rpart"</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, package = <span class='st'>"MASS"</span>)
+<span class='kw'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='kw'>medv</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>Boston</span>)
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>Boston</span>)
 
 <span class='co'># Compute the interactions</span>
-<span class='no'>ia</span> <span class='kw'>&lt;-</span> <span class='no'>Interaction</span>$<span class='fu'>new</span>(<span class='no'>mod</span>)
+<span class='kw'>ia</span> <span class='op'>&lt;-</span> <span class='kw'>Interaction</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>)
 
 <span class='co'># Plot the results directly</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>ia</span>)
-}</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>ia</span>)
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -188,7 +189,7 @@ Defaults to TRUE.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

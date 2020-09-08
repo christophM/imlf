@@ -136,7 +136,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for FeatureEffects</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='kw'>features</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>nrows</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ncols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>fixed_y</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>x</span>, features = <span class='kw'>NULL</span>, nrows = <span class='kw'>NULL</span>, ncols = <span class='kw'>NULL</span>, fixed_y = <span class='fl'>TRUE</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -184,20 +184,23 @@ ggplot2 plots.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># We train a random forest on the Boston dataset:</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'>"randomForest"</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"MASS"</span>)
-<span class='no'>rf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span>(<span class='no'>medv</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>, <span class='kw'>ntree</span> <span class='kw'>=</span> <span class='fl'>50</span>)
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>rf</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'><a href='https://www.stat.berkeley.edu/~breiman/RandomForests'>"randomForest"</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, package = <span class='st'>"MASS"</span>)
+<span class='kw'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span>(<span class='kw'>medv</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>Boston</span>, ntree = <span class='fl'>50</span>)
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>Boston</span>)
 
 <span class='co'># Compute the partial dependence for the first feature</span>
-<span class='no'>eff</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureEffects</span>$<span class='fu'>new</span>(<span class='no'>mod</span>)
+<span class='kw'>eff</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureEffects</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>)
 
 <span class='co'># Plot the results directly</span>
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>()</div><div class='img'><img src='plot.FeatureEffects-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>()
+</div><div class='img'><img src='plot.FeatureEffects-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># For a subset of features</span>
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='kw'>features</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"lstat"</span>, <span class='st'>"crim"</span>))</div><div class='img'><img src='plot.FeatureEffects-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(features = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"lstat"</span>, <span class='st'>"crim"</span>))
+</div><div class='img'><img src='plot.FeatureEffects-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># With a different layout</span>
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='kw'>nrows</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='img'><img src='plot.FeatureEffects-3.png' alt='' width='700' height='433' /></div></pre>
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(nrows = <span class='fl'>2</span>)
+</div><div class='img'><img src='plot.FeatureEffects-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -213,7 +216,7 @@ ggplot2 plots.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

@@ -183,7 +183,7 @@ https://doi.org/10.1080/10618600.2014.907095</p>
     <p><code><a href='InterpretationMethod.html'>iml::InterpretationMethod</a></code> -&gt; <code>FeatureEffect</code></p>
     <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
 
-    <p><div class="r6-fields"></p><dl'>
+    <p><div class="r6-fields"></p><dl>
 <dt><code>grid.size</code></dt><dd><p>(<code><a href='https://rdrr.io/r/base/numeric.html'>numeric(1)</a></code> | <code><a href='https://rdrr.io/r/base/numeric.html'>numeric(2)</a></code>)<br />
 The size of the grid.</p></dd>
 
@@ -201,7 +201,7 @@ The detected types of the features, either "categorical" or "numerical".</p></dd
 </dl><p></div></p>
     <h2 class="hasAnchor" id="active-bindings"><a class="anchor" href="#active-bindings"></a>Active bindings</h2>
 
-    <p><div class="r6-active-bindings"></p><dl'>
+    <p><div class="r6-active-bindings"></p><dl>
 <dt><code>center.at</code></dt><dd><p><a href='https://rdrr.io/r/base/numeric.html'>numeric</a><br />
 Value at which the plot was centered. Ignored in the case of two
 features.</p></dd>
@@ -210,7 +210,7 @@ features.</p></dd>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
-<h3>Public methods</h3>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Public methods</h3>
 
 <ul>
 <li><p><a href='#method-new'><code>FeatureEffect$new()</code></a></p></li>
@@ -227,18 +227,18 @@ features.</p></dd>
 </details>
 
 <hr>
-<a id="method-new"></a></p><h3>Method <code>new()</code></h3>
-<p>Create a FeatureEffect object</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>FeatureEffect</span>$<span class='fu'>new</span>(
-  <span class='no'>predictor</span>,
-  <span class='no'>feature</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"ale"</span>,
-  <span class='kw'>center.at</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>grid.size</span> <span class='kw'>=</span> <span class='fl'>20</span>
+<a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
+<p>Create a FeatureEffect object</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'>new</span>(
+  <span class='kw'>predictor</span>,
+  <span class='kw'>feature</span>,
+  method = <span class='st'>"ale"</span>,
+  center.at = <span class='kw'>NULL</span>,
+  grid.size = <span class='fl'>20</span>
 )</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>predictor</code></dt><dd><p><a href='Predictor.html'>Predictor</a><br />
 The object (created with <code>Predictor$new()</code>) holding the machine
 learning model and the data.</p></dd>
@@ -265,35 +265,35 @@ The size of the grid for evaluating the predictions.</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-set.feature"></a></p><h3>Method <code>set.feature()</code></h3>
-<p>Get/set feature(s) (by index) for which to compute PDP.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>FeatureEffect</span>$<span class='fu'>set.feature</span>(<span class='no'>feature</span>)</pre><p></div></p>
+<a id="method-set.feature"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>set.feature()</code></h3>
+<p>Get/set feature(s) (by index) for which to compute PDP.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'>set.feature</span>(<span class='kw'>feature</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>feature</code></dt><dd><p>(<code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>)<br />
 Feature name.</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-center"></a></p><h3>Method <code>center()</code></h3>
-<p>Set the value at which the ice computations are centered.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>FeatureEffect</span>$<span class='fu'>center</span>(<span class='no'>center.at</span>)</pre><p></div></p>
+<a id="method-center"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>center()</code></h3>
+<p>Set the value at which the ice computations are centered.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'>center</span>(<span class='kw'>center.at</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>center.at</code></dt><dd><p>(<code><a href='https://rdrr.io/r/base/numeric.html'>numeric(1)</a></code>)<br />
 Value at which the plot should be centered. Ignored in the case of two
 features.</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-predict"></a></p><h3>Method <code><a href='https://rdrr.io/r/stats/predict.html'>predict()</a></code></h3>
-<p>Predict the marginal outcome given a feature.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>FeatureEffect</span>$<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='no'>data</span>, <span class='kw'>extrapolate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre><p></div></p>
+<a id="method-predict"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code><a href='https://rdrr.io/r/stats/predict.html'>predict()</a></code></h3>
+<p>Predict the marginal outcome given a feature.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='kw'>data</span>, extrapolate = <span class='fl'>FALSE</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>data</code></dt><dd><p><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a><br />
 Data.frame with the feature or a vector.</p></dd>
 
@@ -303,15 +303,15 @@ If FALSE, predcit returns the closest PDP value for x values outside the range.
 Ignored for categorical features</p></dd>
 
 </dl><p></div></p>
-<h3>Returns</h3>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Returns</h4>
 <p>Values of the effect curves at the given values.</p>
 <p><hr>
-<a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
-<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>FeatureEffect</span>$<span class='fu'>clone</span>(<span class='kw'>deep</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre><p></div></p>
+<a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'>clone</span>(deep = <span class='fl'>FALSE</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
 
 </dl><p></div></p>
@@ -320,34 +320,40 @@ Ignored for categorical features</p></dd>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># We train a random forest on the Boston dataset:</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"MASS"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'>"randomForest"</span>)</div><div class='output co'>#&gt; <span class='message'>randomForest 4.6-14</span></div><div class='output co'>#&gt; <span class='message'>Type rfNews() to see new features/changes/bug fixes.</span></div><div class='input'><span class='no'>rf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span>(<span class='no'>medv</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>, <span class='kw'>ntree</span> <span class='kw'>=</span> <span class='fl'>50</span>)
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>rf</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, package = <span class='st'>"MASS"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'><a href='https://www.stat.berkeley.edu/~breiman/RandomForests'>"randomForest"</a></span>)
+</div><div class='output co'>#&gt; <span class='message'>randomForest 4.6-14</span></div><div class='output co'>#&gt; <span class='message'>Type rfNews() to see new features/changes/bug fixes.</span></div><div class='input'><span class='kw'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span>(<span class='kw'>medv</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>Boston</span>, ntree = <span class='fl'>50</span>)
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>Boston</span>)
 
 <span class='co'># Compute the accumulated local effects for the first feature</span>
-<span class='no'>eff</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureEffect</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>feature</span> <span class='kw'>=</span> <span class='st'>"rm"</span>, <span class='kw'>grid.size</span> <span class='kw'>=</span> <span class='fl'>30</span>)
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>()</div><div class='img'><img src='FeatureEffect-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>eff</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, feature = <span class='st'>"rm"</span>, grid.size = <span class='fl'>30</span>)
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>()
+</div><div class='img'><img src='FeatureEffect-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Again, but this time with a partial dependence plot and ice curves</span>
-<span class='no'>eff</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureEffect</span>$<span class='fu'>new</span>(<span class='no'>mod</span>,
-  <span class='kw'>feature</span> <span class='kw'>=</span> <span class='st'>"rm"</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"pdp+ice"</span>,
-  <span class='kw'>grid.size</span> <span class='kw'>=</span> <span class='fl'>30</span>
+<span class='kw'>eff</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>,
+  feature = <span class='st'>"rm"</span>, method = <span class='st'>"pdp+ice"</span>,
+  grid.size = <span class='fl'>30</span>
 )
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>eff</span>)</div><div class='img'><img src='FeatureEffect-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>eff</span>)
+</div><div class='img'><img src='FeatureEffect-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Since the result is a ggplot object, you can extend it:</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'>"ggplot2"</span>)</div><div class='output co'>#&gt; <span class='message'></span>
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'><a href='http://ggplot2.tidyverse.org'>"ggplot2"</a></span>)
+</div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Attaching package: ‘ggplot2’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:randomForest’:</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>    margin</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>eff</span>) +
+#&gt; <span class='message'>    margin</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>eff</span>) <span class='op'>+</span>
   <span class='co'># Adds a title</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>"Partial dependence"</span>) +
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span>(<span class='st'>"Partial dependence"</span>) <span class='op'>+</span>
   <span class='co'># Adds original predictions</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(
-    <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>mod</span>$<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='no'>Boston</span>)<span class='kw'>[[</span><span class='fl'>1</span>]], <span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>rm</span>),
-    <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"pink"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>0.5</span>
-  )</div><div class='img'><img src='FeatureEffect-3.png' alt='' width='700' height='433' /></div><div class='input'>
+    data = <span class='kw'>Boston</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(y = <span class='kw'>mod</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='kw'>Boston</span>)[[<span class='fl'>1</span>]], x = <span class='kw'>rm</span>),
+    color = <span class='st'>"pink"</span>, size = <span class='fl'>0.5</span>
+  )
+</div><div class='img'><img src='FeatureEffect-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># If you want to do your own thing, just extract the data:</span>
-<span class='no'>eff.dat</span> <span class='kw'>&lt;-</span> <span class='no'>eff</span>$<span class='no'>results</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>eff.dat</span>)</div><div class='output co'>#&gt;         rm   .value .type .id
+<span class='kw'>eff.dat</span> <span class='op'>&lt;-</span> <span class='kw'>eff</span><span class='op'>$</span><span class='kw'>results</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>eff.dat</span>)
+</div><div class='output co'>#&gt;         rm   .value .type .id
 #&gt; 1 3.561000 20.49615   pdp  NA
 #&gt; 2 3.740966 20.49615   pdp  NA
 #&gt; 3 3.920931 20.49615   pdp  NA
@@ -355,35 +361,46 @@ Ignored for categorical features</p></dd>
 #&gt; 5 4.280862 20.47063   pdp  NA
 #&gt; 6 4.460828 20.47006   pdp  NA</div><div class='input'>
 <span class='co'># You can also use the object to "predict" the marginal values.</span>
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='no'>Boston</span>[<span class='fl'>1</span>:<span class='fl'>3</span>, ])</div><div class='output co'>#&gt; [1] 22.13121 21.40123 27.92405</div><div class='input'><span class='co'># Instead of the entire data.frame, you can also use feature values:</span>
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>5</span>, <span class='fl'>6</span>, <span class='fl'>7</span>))</div><div class='output co'>#&gt; [1] 20.41243 20.63094 27.18993</div><div class='input'>
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='kw'>Boston</span>[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, ])
+</div><div class='output co'>#&gt; [1] 22.13121 21.40123 27.92405</div><div class='input'><span class='co'># Instead of the entire data.frame, you can also use feature values:</span>
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>5</span>, <span class='fl'>6</span>, <span class='fl'>7</span>))
+</div><div class='output co'>#&gt; [1] 20.41243 20.63094 27.18993</div><div class='input'>
 <span class='co'># You can reuse the pdp object for other features:</span>
-<span class='no'>eff</span>$<span class='fu'>set.feature</span>(<span class='st'>"lstat"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>eff</span>)</div><div class='img'><img src='FeatureEffect-4.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'>set.feature</span>(<span class='st'>"lstat"</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>eff</span>)
+</div><div class='img'><img src='FeatureEffect-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Only plotting the aggregated partial dependence:</span>
-<span class='no'>eff</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureEffect</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>feature</span> <span class='kw'>=</span> <span class='st'>"crim"</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"pdp"</span>)
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>()</div><div class='img'><img src='FeatureEffect-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>eff</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, feature = <span class='st'>"crim"</span>, method = <span class='st'>"pdp"</span>)
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>()
+</div><div class='img'><img src='FeatureEffect-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Only plotting the individual conditional expectation:</span>
-<span class='no'>eff</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureEffect</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>feature</span> <span class='kw'>=</span> <span class='st'>"crim"</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"ice"</span>)
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>()</div><div class='img'><img src='FeatureEffect-6.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>eff</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, feature = <span class='st'>"crim"</span>, method = <span class='st'>"ice"</span>)
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>()
+</div><div class='img'><img src='FeatureEffect-6.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Accumulated local effects and partial dependence plots support up to two</span>
 <span class='co'># features:</span>
-<span class='no'>eff</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureEffect</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>feature</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"crim"</span>, <span class='st'>"lstat"</span>))</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: yaImpute</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>eff</span>)</div><div class='img'><img src='FeatureEffect-7.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>eff</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, feature = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"crim"</span>, <span class='st'>"lstat"</span>))
+</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: yaImpute</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>eff</span>)
+</div><div class='img'><img src='FeatureEffect-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># FeatureEffect plots also works with multiclass classification</span>
-<span class='no'>rf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span>(<span class='no'>Species</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>, <span class='kw'>ntree</span> <span class='kw'>=</span> <span class='fl'>50</span>)
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>rf</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"prob"</span>)
+<span class='kw'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span>(<span class='kw'>Species</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>iris</span>, ntree = <span class='fl'>50</span>)
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>iris</span>, type = <span class='st'>"prob"</span>)
 
 <span class='co'># For some models we have to specify additional arguments for the predict</span>
 <span class='co'># function</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>FeatureEffect</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>feature</span> <span class='kw'>=</span> <span class='st'>"Petal.Width"</span>))</div><div class='img'><img src='FeatureEffect-8.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, feature = <span class='st'>"Petal.Width"</span>))
+</div><div class='img'><img src='FeatureEffect-8.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># FeatureEffect plots support up to two features:</span>
-<span class='no'>eff</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureEffect</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>feature</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Sepal.Length"</span>, <span class='st'>"Petal.Length"</span>))
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>()</div><div class='img'><img src='FeatureEffect-9.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>eff</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, feature = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Sepal.Length"</span>, <span class='st'>"Petal.Length"</span>))
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>()
+</div><div class='img'><img src='FeatureEffect-9.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># show where the actual data lies</span>
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='kw'>show.data</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='FeatureEffect-10.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(show.data = <span class='fl'>TRUE</span>)
+</div><div class='img'><img src='FeatureEffect-10.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># For multiclass classification models, you can choose to only show one class:</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>rf</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"prob"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='fl'>1</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>FeatureEffect</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>feature</span> <span class='kw'>=</span> <span class='st'>"Sepal.Length"</span>))</div><div class='img'><img src='FeatureEffect-11.png' alt='' width='700' height='433' /></div></pre>
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>iris</span>, type = <span class='st'>"prob"</span>, class = <span class='fl'>1</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>FeatureEffect</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, feature = <span class='st'>"Sepal.Length"</span>))
+</div><div class='img'><img src='FeatureEffect-11.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -399,7 +416,7 @@ Ignored for categorical features</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

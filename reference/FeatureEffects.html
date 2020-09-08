@@ -155,7 +155,7 @@ features, directly use <a href='FeatureEffect.html'>FeatureEffect</a>.</p>
 To initialize future-based parallelization, select an appropriate backend and
 specify the amount of workers.
 For example, to use a PSOCK based cluster backend do:<div class="r"></p><pre>future::plan(multisession, workers = 2)
-&amp;lt;iml function here&amp;gt;
+&lt;iml function here&gt;
 </pre><p></div></p>
 <p>Consult the resources of the <a href='https://CRAN.R-project.org/package=future'><span class="pkg">future</span></a> package for more parallel
 backend options.</p>
@@ -177,7 +177,7 @@ https://doi.org/10.1080/10618600.2014.907095</p>
     <p><code><a href='InterpretationMethod.html'>iml::InterpretationMethod</a></code> -&gt; <code>FeatureEffects</code></p>
     <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
 
-    <p><div class="r6-fields"></p><dl'>
+    <p><div class="r6-fields"></p><dl>
 <dt><code>grid.size</code></dt><dd><p>(<code><a href='https://rdrr.io/r/base/numeric.html'>numeric(1)</a></code> | <code><a href='https://rdrr.io/r/base/numeric.html'>numeric(2)</a></code>)<br />
 The size of the grid.</p></dd>
 
@@ -204,7 +204,7 @@ features.</p></dd>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
-<h3>Public methods</h3>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Public methods</h3>
 
 <ul>
 <li><p><a href='#method-new'><code>FeatureEffects$new()</code></a></p></li>
@@ -218,18 +218,18 @@ features.</p></dd>
 </details>
 
 <hr>
-<a id="method-new"></a></p><h3>Method <code>new()</code></h3>
-<p>Create a FeatureEffects object</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>FeatureEffects</span>$<span class='fu'>new</span>(
-  <span class='no'>predictor</span>,
-  <span class='kw'>features</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"ale"</span>,
-  <span class='kw'>center.at</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>grid.size</span> <span class='kw'>=</span> <span class='fl'>20</span>
+<a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
+<p>Create a FeatureEffects object</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>FeatureEffects</span><span class='op'>$</span><span class='fu'>new</span>(
+  <span class='kw'>predictor</span>,
+  features = <span class='kw'>NULL</span>,
+  method = <span class='st'>"ale"</span>,
+  center.at = <span class='kw'>NULL</span>,
+  grid.size = <span class='fl'>20</span>
 )</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>predictor</code></dt><dd><p><a href='Predictor.html'>Predictor</a><br />
 The object (created with <code>Predictor$new()</code>) holding the machine
 learning model and the data.</p></dd>
@@ -259,12 +259,12 @@ The feature name or index for which to compute the effects.</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
-<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>FeatureEffects</span>$<span class='fu'>clone</span>(<span class='kw'>deep</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre><p></div></p>
+<a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>FeatureEffects</span><span class='op'>$</span><span class='fu'>clone</span>(deep = <span class='fl'>FALSE</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
 
 </dl><p></div></p>
@@ -273,34 +273,36 @@ The feature name or index for which to compute the effects.</p></dd>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># We train a random forest on the Boston dataset:</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'>"rpart"</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"MASS"</span>)
-<span class='no'>rf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='no'>medv</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>)
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>rf</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'><a href='https://github.com/bethatkinson/rpart'>"rpart"</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, package = <span class='st'>"MASS"</span>)
+<span class='kw'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='kw'>medv</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>Boston</span>)
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>Boston</span>)
 
 <span class='co'># Compute the accumulated local effects for all features</span>
-<span class='no'>eff</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureEffects</span>$<span class='fu'>new</span>(<span class='no'>mod</span>)
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>()</div><div class='img'><img src='FeatureEffects-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw'>eff</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureEffects</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>)
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>()
+</div><div class='img'><img src='FeatureEffects-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># Again, but this time with a partial dependence plot</span>
-<span class='no'>eff</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureEffects</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"pdp"</span>)
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>()
+<span class='kw'>eff</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureEffects</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, method = <span class='st'>"pdp"</span>)
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>()
 
 <span class='co'># Only a subset of features</span>
-<span class='no'>eff</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureEffects</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>features</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"nox"</span>, <span class='st'>"crim"</span>))
-<span class='no'>eff</span>$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>()
+<span class='kw'>eff</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureEffects</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, features = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"nox"</span>, <span class='st'>"crim"</span>))
+<span class='kw'>eff</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>()
 
 <span class='co'># You can access each FeatureEffect individually</span>
 
-<span class='no'>eff.nox</span> <span class='kw'>&lt;-</span> <span class='no'>eff</span>$<span class='no'>effects</span><span class='kw'>[[</span><span class='st'>"nox"</span>]]
-<span class='no'>eff.nox</span>$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>()
+<span class='kw'>eff.nox</span> <span class='op'>&lt;-</span> <span class='kw'>eff</span><span class='op'>$</span><span class='kw'>effects</span>[[<span class='st'>"nox"</span>]]
+<span class='kw'>eff.nox</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>()
 
 
 <span class='co'># FeatureEffects also works with multiclass classification</span>
-<span class='no'>rf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='no'>Species</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>rf</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"prob"</span>)
+<span class='kw'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='kw'>Species</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>iris</span>)
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>iris</span>, type = <span class='st'>"prob"</span>)
 
-<span class='no'>FeatureEffects</span>$<span class='fu'>new</span>(<span class='no'>mod</span>)$<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>2</span>)
-}</div></pre>
+<span class='kw'>FeatureEffects</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>)<span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(ncol = <span class='fl'>2</span>)
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -316,7 +318,7 @@ The feature name or index for which to compute the effects.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

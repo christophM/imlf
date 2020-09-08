@@ -163,7 +163,7 @@ Systems, 41(3), 647-665. https://doi.org/10.1007/s10115-013-0679-x</p>
     <p><code><a href='InterpretationMethod.html'>iml::InterpretationMethod</a></code> -&gt; <code>Shapley</code></p>
     <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
 
-    <p><div class="r6-fields"></p><dl'>
+    <p><div class="r6-fields"></p><dl>
 <dt><code>x.interest</code></dt><dd><p><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a><br />
 Single row with the instance to be explained.</p></dd>
 
@@ -182,7 +182,7 @@ become.</p></dd>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
-<h3>Public methods</h3>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Public methods</h3>
 
 <ul>
 <li><p><a href='#method-new'><code>Shapley$new()</code></a></p></li>
@@ -197,12 +197,12 @@ become.</p></dd>
 </details>
 
 <hr>
-<a id="method-new"></a></p><h3>Method <code>new()</code></h3>
-<p>Create a Shapley object</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Shapley</span>$<span class='fu'>new</span>(<span class='no'>predictor</span>, <span class='kw'>x.interest</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>sample.size</span> <span class='kw'>=</span> <span class='fl'>100</span>)</pre><p></div></p>
+<a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
+<p>Create a Shapley object</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>Shapley</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>predictor</span>, x.interest = <span class='kw'>NULL</span>, sample.size = <span class='fl'>100</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>predictor</code></dt><dd><p><a href='Predictor.html'>Predictor</a><br />
 The object (created with <code>Predictor$new()</code>) holding the machine
 learning model and the data.</p></dd>
@@ -214,27 +214,27 @@ Single row with the instance to be explained.</p></dd>
 The number of Monte Carlo samples for estimating the Shapley value.</p></dd>
 
 </dl><p></div></p>
-<h3>Returns</h3>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Returns</h4>
 <p><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a><br />
 <a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a> with the Shapley values (phi) per feature.</p>
 <p><hr>
-<a id="method-explain"></a></p><h3>Method <code>explain()</code></h3>
-<p>Set a new data point which to explain.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Shapley</span>$<span class='fu'>explain</span>(<span class='no'>x.interest</span>)</pre><p></div></p>
+<a id="method-explain"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>explain()</code></h3>
+<p>Set a new data point which to explain.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>Shapley</span><span class='op'>$</span><span class='fu'>explain</span>(<span class='kw'>x.interest</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>x.interest</code></dt><dd><p><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a><br />
 Single row with the instance to be explained.</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
-<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Shapley</span>$<span class='fu'>clone</span>(<span class='kw'>deep</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre><p></div></p>
+<a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>Shapley</span><span class='op'>$</span><span class='fu'>clone</span>(deep = <span class='fl'>FALSE</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
 
 </dl><p></div></p>
@@ -242,17 +242,18 @@ Single row with the instance to be explained.</p></dd>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'>"rpart"</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'><a href='https://github.com/bethatkinson/rpart'>"rpart"</a></span>)
 <span class='co'># First we fit a machine learning model on the Boston housing data</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"MASS"</span>)
-<span class='no'>rf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='no'>medv</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>)
-<span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='no'>Boston</span>[-<span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>Boston</span>) <span class='kw'>==</span> <span class='st'>"medv"</span>)]
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>rf</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, package = <span class='st'>"MASS"</span>)
+<span class='kw'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='kw'>medv</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>Boston</span>)
+<span class='kw'>X</span> <span class='op'>&lt;-</span> <span class='kw'>Boston</span>[<span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>Boston</span>) <span class='op'>==</span> <span class='st'>"medv"</span>)]
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>X</span>)
 
 <span class='co'># Then we explain the first instance of the dataset with the Shapley method:</span>
-<span class='no'>x.interest</span> <span class='kw'>&lt;-</span> <span class='no'>X</span>[<span class='fl'>1</span>, ]
-<span class='no'>shapley</span> <span class='kw'>&lt;-</span> <span class='no'>Shapley</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>x.interest</span> <span class='kw'>=</span> <span class='no'>x.interest</span>)
-<span class='no'>shapley</span></div><div class='output co'>#&gt; Interpretation method:  Shapley 
+<span class='kw'>x.interest</span> <span class='op'>&lt;-</span> <span class='kw'>X</span>[<span class='fl'>1</span>, ]
+<span class='kw'>shapley</span> <span class='op'>&lt;-</span> <span class='kw'>Shapley</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, x.interest = <span class='kw'>x.interest</span>)
+<span class='kw'>shapley</span>
+</div><div class='output co'>#&gt; Interpretation method:  Shapley 
 #&gt; Predicted value: 27.427273, Average prediction: 22.532806 (diff = 4.894466)
 #&gt; 
 #&gt; Analysed predictor: 
@@ -271,7 +272,8 @@ Single row with the instance to be explained.</p></dd>
 #&gt; 5     nox 0.0000000  0.00000     nox=0.538
 #&gt; 6      rm 1.4808214 35.80714      rm=6.575</div><div class='input'>
 <span class='co'># Look at the results in a table</span>
-<span class='no'>shapley</span>$<span class='no'>results</span></div><div class='output co'>#&gt;    feature        phi   phi.var feature.value
+<span class='kw'>shapley</span><span class='op'>$</span><span class='kw'>results</span>
+</div><div class='output co'>#&gt;    feature        phi   phi.var feature.value
 #&gt; 1     crim  0.4127396  1.978860  crim=0.00632
 #&gt; 2       zn  0.0000000  0.000000         zn=18
 #&gt; 3    indus  0.0000000  0.000000    indus=2.31
@@ -285,26 +287,29 @@ Single row with the instance to be explained.</p></dd>
 #&gt; 11 ptratio  0.0000000  0.000000  ptratio=15.3
 #&gt; 12   black  0.0000000  0.000000   black=396.9
 #&gt; 13   lstat  3.2841181 23.226452    lstat=4.98</div><div class='input'><span class='co'># Or as a plot</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>shapley</span>)</div><div class='img'><img src='Shapley-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>shapley</span>)
+</div><div class='img'><img src='Shapley-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Explain another instance</span>
-<span class='no'>shapley</span>$<span class='fu'>explain</span>(<span class='no'>X</span>[<span class='fl'>2</span>, ])
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>shapley</span>)</div><div class='img'><img src='Shapley-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='kw'>shapley</span><span class='op'>$</span><span class='fu'>explain</span>(<span class='kw'>X</span>[<span class='fl'>2</span>, ])
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>shapley</span>)
+</div><div class='img'><img src='Shapley-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># Shapley() also works with multiclass classification</span>
-<span class='no'>rf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='no'>Species</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)
-<span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='no'>iris</span>[-<span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>iris</span>) <span class='kw'>==</span> <span class='st'>"Species"</span>)]
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>rf</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"prob"</span>)
+<span class='kw'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='kw'>Species</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>iris</span>)
+<span class='kw'>X</span> <span class='op'>&lt;-</span> <span class='kw'>iris</span>[<span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>iris</span>) <span class='op'>==</span> <span class='st'>"Species"</span>)]
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>X</span>, type = <span class='st'>"prob"</span>)
 
 <span class='co'># Then we explain the first instance of the dataset with the Shapley() method:</span>
-<span class='no'>shapley</span> <span class='kw'>&lt;-</span> <span class='no'>Shapley</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>x.interest</span> <span class='kw'>=</span> <span class='no'>X</span>[<span class='fl'>1</span>, ])
-<span class='no'>shapley</span>$<span class='no'>results</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>shapley</span>)
+<span class='kw'>shapley</span> <span class='op'>&lt;-</span> <span class='kw'>Shapley</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, x.interest = <span class='kw'>X</span>[<span class='fl'>1</span>, ])
+<span class='kw'>shapley</span><span class='op'>$</span><span class='kw'>results</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>shapley</span>)
 
 <span class='co'># You can also focus on one class</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>rf</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"prob"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"setosa"</span>)
-<span class='no'>shapley</span> <span class='kw'>&lt;-</span> <span class='no'>Shapley</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>x.interest</span> <span class='kw'>=</span> <span class='no'>X</span>[<span class='fl'>1</span>, ])
-<span class='no'>shapley</span>$<span class='no'>results</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>shapley</span>)
-}</div></pre>
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>X</span>, type = <span class='st'>"prob"</span>, class = <span class='st'>"setosa"</span>)
+<span class='kw'>shapley</span> <span class='op'>&lt;-</span> <span class='kw'>Shapley</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, x.interest = <span class='kw'>X</span>[<span class='fl'>1</span>, ])
+<span class='kw'>shapley</span><span class='op'>$</span><span class='kw'>results</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>shapley</span>)
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -320,7 +325,7 @@ Single row with the instance to be explained.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

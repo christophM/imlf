@@ -164,7 +164,7 @@ functions that return a single performance value, not a vector. Allowed
 losses are: <code>"ce"</code>, <code>"f1"</code>, <code>"logLoss"</code>, <code>"mae"</code>, <code>"mse"</code>, <code>"rmse"</code>, <code>"mape"</code>,
 <code>"mdae"</code>, <code>"msle"</code>, <code>"percent_bias"</code>, <code>"rae"</code>, <code>"rmse"</code>, <code>"rmsle"</code>, <code>"rse"</code>,
 <code>"rrse"</code> and <code>"smape"</code>.</p>
-<p>See <code><a href='https://rdrr.io/pkg/Metrics/man'>library(help = "Metrics")</a></code> to get a list of functions.</p>
+<p>See <code><a href='https://github.com/mfrasco/Metrics'>library(help = "Metrics")</a></code> to get a list of functions.</p>
     <h2 class="hasAnchor" id="parallelization"><a class="anchor" href="#parallelization"></a>Parallelization</h2>
 
     
@@ -173,7 +173,7 @@ losses are: <code>"ce"</code>, <code>"f1"</code>, <code>"logLoss"</code>, <code>
 To initialize future-based parallelization, select an appropriate backend and
 specify the amount of workers.
 For example, to use a PSOCK based cluster backend do:<div class="r"></p><pre>future::plan(multisession, workers = 2)
-&amp;lt;iml function here&amp;gt;
+&lt;iml function here&gt;
 </pre><p></div></p>
 <p>Consult the resources of the <a href='https://CRAN.R-project.org/package=future'><span class="pkg">future</span></a> package for more parallel
 backend options.</p>
@@ -187,7 +187,7 @@ Variable Importance Measures for any Machine Learning Model Class, from the
     <p><code><a href='InterpretationMethod.html'>iml::InterpretationMethod</a></code> -&gt; <code>FeatureImp</code></p>
     <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
 
-    <p><div class="r6-fields"></p><dl'>
+    <p><div class="r6-fields"></p><dl>
 <dt><code>loss</code></dt><dd><p>(<code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code> | <a href='https://rdrr.io/r/base/function.html'>function</a>)<br />
 The loss function. Either the name of a loss (e.g. <code>"ce"</code> for
 classification or <code>"mse"</code>) or a function.</p></dd>
@@ -207,7 +207,7 @@ ratio.</p></dd>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
-<h3>Public methods</h3>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Public methods</h3>
 
 <ul>
 <li><p><a href='#method-new'><code>FeatureImp$new()</code></a></p></li>
@@ -221,12 +221,12 @@ ratio.</p></dd>
 </details>
 
 <hr>
-<a id="method-new"></a></p><h3>Method <code>new()</code></h3>
-<p>Create a FeatureImp object</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>FeatureImp</span>$<span class='fu'>new</span>(<span class='no'>predictor</span>, <span class='no'>loss</span>, <span class='kw'>compare</span> <span class='kw'>=</span> <span class='st'>"ratio"</span>, <span class='kw'>n.repetitions</span> <span class='kw'>=</span> <span class='fl'>5</span>)</pre><p></div></p>
+<a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
+<p>Create a FeatureImp object</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>FeatureImp</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>predictor</span>, <span class='kw'>loss</span>, compare = <span class='st'>"ratio"</span>, n.repetitions = <span class='fl'>5</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>predictor</code></dt><dd><p><a href='Predictor.html'>Predictor</a><br />
 The object (created with <code>Predictor$new()</code>) holding the machine
 learning model and the data.</p></dd>
@@ -251,7 +251,7 @@ The higher the number of repetitions the more stable and accurate the
 results become.</p></dd>
 
 </dl><p></div></p>
-<h3>Returns</h3>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Returns</h4>
 <p>(data.frame)<br />
 data.frame with the results of the feature importance computation. One
 row per feature with the following columns:</p><ul>
@@ -264,12 +264,12 @@ over all repetitions).</p></li>
 <p>The distribution of the importance is also visualized as a bar in the
 plots, the median importance over the repetitions as a point.</p>
 <p><hr>
-<a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
-<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>FeatureImp</span>$<span class='fu'>clone</span>(<span class='kw'>deep</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre><p></div></p>
+<a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>FeatureImp</span><span class='op'>$</span><span class='fu'>clone</span>(deep = <span class='fl'>FALSE</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
 
 </dl><p></div></p>
@@ -277,59 +277,66 @@ plots, the median importance over the repetitions as a point.</p>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'>"rpart"</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'><a href='https://github.com/bethatkinson/rpart'>"rpart"</a></span>)
 <span class='co'># We train a tree on the Boston dataset:</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"MASS"</span>)
-<span class='no'>tree</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='no'>medv</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>)
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='no'>Boston</span>$<span class='no'>medv</span>
-<span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='no'>Boston</span>[-<span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>Boston</span>) <span class='kw'>==</span> <span class='st'>"medv"</span>)]
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>tree</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, package = <span class='st'>"MASS"</span>)
+<span class='kw'>tree</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='kw'>medv</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>Boston</span>)
+<span class='kw'>y</span> <span class='op'>&lt;-</span> <span class='kw'>Boston</span><span class='op'>$</span><span class='kw'>medv</span>
+<span class='kw'>X</span> <span class='op'>&lt;-</span> <span class='kw'>Boston</span>[<span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>Boston</span>) <span class='op'>==</span> <span class='st'>"medv"</span>)]
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>tree</span>, data = <span class='kw'>X</span>, y = <span class='kw'>y</span>)
 
 
 <span class='co'># Compute feature importances as the performance drop in mean absolute error</span>
-<span class='no'>imp</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureImp</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>loss</span> <span class='kw'>=</span> <span class='st'>"mae"</span>)
+<span class='kw'>imp</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureImp</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, loss = <span class='st'>"mae"</span>)
 
 <span class='co'># Plot the results directly</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>imp</span>)</div><div class='img'><img src='FeatureImp-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>imp</span>)
+</div><div class='img'><img src='FeatureImp-1.png' alt='' width='700' height='433' /></div><div class='input'>
 
 <span class='co'># Since the result is a ggplot object, you can extend it:</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'>"ggplot2"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>imp</span>) + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span>()</div><div class='img'><img src='FeatureImp-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># If you want to do your own thing, just extract the data:</span>
-<span class='no'>imp.dat</span> <span class='kw'>&lt;-</span> <span class='no'>imp</span>$<span class='no'>results</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>imp.dat</span>)</div><div class='output co'>#&gt;   feature importance.05 importance importance.95 permutation.error
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'><a href='http://ggplot2.tidyverse.org'>"ggplot2"</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>imp</span>) <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span>()
+</div><div class='img'><img src='FeatureImp-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># If you want to do your own thing, just extract the data:</span>
+<span class='kw'>imp.dat</span> <span class='op'>&lt;-</span> <span class='kw'>imp</span><span class='op'>$</span><span class='kw'>results</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>imp.dat</span>)
+</div><div class='output co'>#&gt;   feature importance.05 importance importance.95 permutation.error
 #&gt; 1      rm      2.096029   2.141674      2.224481          6.231631
 #&gt; 2   lstat      1.779889   1.913461      2.021279          5.567602
 #&gt; 3     dis      1.134231   1.187735      1.227171          3.455953
 #&gt; 4    crim      1.123923   1.137653      1.152329          3.310231
 #&gt; 5      zn      1.000000   1.000000      1.000000          2.909702
-#&gt; 6   indus      1.000000   1.000000      1.000000          2.909702</div><div class='input'><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>imp.dat</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>feature</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>importance</span>)) +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>() +
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span>()</div><div class='img'><img src='FeatureImp-3.png' alt='' width='700' height='433' /></div><div class='input'>
+#&gt; 6   indus      1.000000   1.000000      1.000000          2.909702</div><div class='input'><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='kw'>imp.dat</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(x = <span class='kw'>feature</span>, y = <span class='kw'>importance</span>)) <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>() <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span>()
+</div><div class='img'><img src='FeatureImp-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># We can also look at the difference in model error instead of the ratio</span>
-<span class='no'>imp</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureImp</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>loss</span> <span class='kw'>=</span> <span class='st'>"mae"</span>, <span class='kw'>compare</span> <span class='kw'>=</span> <span class='st'>"difference"</span>)
+<span class='kw'>imp</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureImp</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, loss = <span class='st'>"mae"</span>, compare = <span class='st'>"difference"</span>)
 
 <span class='co'># Plot the results directly</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>imp</span>)</div><div class='img'><img src='FeatureImp-4.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>imp</span>)
+</div><div class='img'><img src='FeatureImp-4.png' alt='' width='700' height='433' /></div><div class='input'>
 
 <span class='co'># FeatureImp also works with multiclass classification.</span>
 <span class='co'># In this case, the importance measurement regards all classes</span>
-<span class='no'>tree</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='no'>Species</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)
-<span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='no'>iris</span>[-<span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>iris</span>) <span class='kw'>==</span> <span class='st'>"Species"</span>)]
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='no'>iris</span>$<span class='no'>Species</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>tree</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"prob"</span>)
+<span class='kw'>tree</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='kw'>Species</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>iris</span>)
+<span class='kw'>X</span> <span class='op'>&lt;-</span> <span class='kw'>iris</span>[<span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>iris</span>) <span class='op'>==</span> <span class='st'>"Species"</span>)]
+<span class='kw'>y</span> <span class='op'>&lt;-</span> <span class='kw'>iris</span><span class='op'>$</span><span class='kw'>Species</span>
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>tree</span>, data = <span class='kw'>X</span>, y = <span class='kw'>y</span>, type = <span class='st'>"prob"</span>)
 
 <span class='co'># For some models we have to specify additional arguments for the predict function</span>
-<span class='no'>imp</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureImp</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>loss</span> <span class='kw'>=</span> <span class='st'>"ce"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>imp</span>)</div><div class='img'><img src='FeatureImp-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>imp</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureImp</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, loss = <span class='st'>"ce"</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>imp</span>)
+</div><div class='img'><img src='FeatureImp-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># For multiclass classification models, you can choose to only compute</span>
 <span class='co'># performance for one class.</span>
 <span class='co'># Make sure to adapt y</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>tree</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span> <span class='kw'>==</span> <span class='st'>"virginica"</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"prob"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"virginica"</span>
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>tree</span>,
+  data = <span class='kw'>X</span>, y = <span class='kw'>y</span> <span class='op'>==</span> <span class='st'>"virginica"</span>,
+  type = <span class='st'>"prob"</span>, class = <span class='st'>"virginica"</span>
 )
-<span class='no'>imp</span> <span class='kw'>&lt;-</span> <span class='no'>FeatureImp</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>loss</span> <span class='kw'>=</span> <span class='st'>"ce"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>imp</span>)</div><div class='img'><img src='FeatureImp-6.png' alt='' width='700' height='433' /></div></pre>
+<span class='kw'>imp</span> <span class='op'>&lt;-</span> <span class='kw'>FeatureImp</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, loss = <span class='st'>"ce"</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>imp</span>)
+</div><div class='img'><img src='FeatureImp-6.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -345,7 +352,7 @@ plots, the median importance over the repetitions as a point.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

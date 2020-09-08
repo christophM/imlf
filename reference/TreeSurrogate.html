@@ -161,7 +161,7 @@ processing systems (pp. 24-30).</p>
     <p><code><a href='InterpretationMethod.html'>iml::InterpretationMethod</a></code> -&gt; <code>TreeSurrogate</code></p>
     <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
 
-    <p><div class="r6-fields"></p><dl'>
+    <p><div class="r6-fields"></p><dl>
 <dt><code>tree</code></dt><dd><p><code>party</code><br />
 The fitted tree. See also <a href='https://rdrr.io/pkg/partykit/man/ctree.html'>partykit::ctree</a>.</p></dd>
 
@@ -178,7 +178,7 @@ multi-class case, r.squared contains one measure per class.</p></dd>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
-<h3>Public methods</h3>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Public methods</h3>
 
 <ul>
 <li><p><a href='#method-new'><code>TreeSurrogate$new()</code></a></p></li>
@@ -193,12 +193,12 @@ multi-class case, r.squared contains one measure per class.</p></dd>
 </details>
 
 <hr>
-<a id="method-new"></a></p><h3>Method <code>new()</code></h3>
-<p>Create a TreeSurrogate object</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>TreeSurrogate</span>$<span class='fu'>new</span>(<span class='no'>predictor</span>, <span class='kw'>maxdepth</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>tree.args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre><p></div></p>
+<a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
+<p>Create a TreeSurrogate object</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>TreeSurrogate</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>predictor</span>, maxdepth = <span class='fl'>2</span>, tree.args = <span class='kw'>NULL</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>predictor</code></dt><dd><p><a href='Predictor.html'>Predictor</a><br />
 The object (created with <code>Predictor$new()</code>) holding the machine
 learning model and the data.</p></dd>
@@ -211,13 +211,13 @@ Further arguments for <code><a href='https://rdrr.io/pkg/party/man/ctree.html'>p
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-predict"></a></p><h3>Method <code><a href='https://rdrr.io/r/stats/predict.html'>predict()</a></code></h3>
+<a id="method-predict"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code><a href='https://rdrr.io/r/stats/predict.html'>predict()</a></code></h3>
 <p>Predict new data with the tree.
-See also <a href='predict.TreeSurrogate.html'>predict.TreeSurrogate</a></p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>TreeSurrogate</span>$<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='no'>newdata</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"prob"</span>, <span class='no'>...</span>)</pre><p></div></p>
+See also <a href='predict.TreeSurrogate.html'>predict.TreeSurrogate</a></p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>TreeSurrogate</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='kw'>newdata</span>, type = <span class='st'>"prob"</span>, <span class='kw'>...</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>newdata</code></dt><dd><p><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a><br />
 Data to predict on.</p></dd>
 
@@ -227,12 +227,12 @@ Data to predict on.</p></dd>
 
 </dl><p></div></p>
 <p><hr>
-<a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
-<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>TreeSurrogate</span>$<span class='fu'>clone</span>(<span class='kw'>deep</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre><p></div></p>
+<a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
+<p><div class="r"></p><pre><span class='kw'>TreeSurrogate</span><span class='op'>$</span><span class='fu'>clone</span>(deep = <span class='fl'>FALSE</span>)</pre><p></div></p>
 
-<h3>Arguments</h3>
-<p><div class="arguments"></p><dl'>
+<h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
+<p><div class="arguments"></p><dl>
 <dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
 
 </dl><p></div></p>
@@ -240,19 +240,22 @@ Data to predict on.</p></dd>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'>"randomForest"</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'><a href='https://www.stat.berkeley.edu/~breiman/RandomForests'>"randomForest"</a></span>)
 <span class='co'># Fit a Random Forest on the Boston housing data set</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"MASS"</span>)
-<span class='no'>rf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span>(<span class='no'>medv</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>, <span class='kw'>ntree</span> <span class='kw'>=</span> <span class='fl'>50</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, package = <span class='st'>"MASS"</span>)
+<span class='kw'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span>(<span class='kw'>medv</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>Boston</span>, ntree = <span class='fl'>50</span>)
 <span class='co'># Create a model object</span>
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>rf</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>Boston</span>[-<span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>Boston</span>) <span class='kw'>==</span> <span class='st'>"medv"</span>)])
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>Boston</span>[<span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>Boston</span>) <span class='op'>==</span> <span class='st'>"medv"</span>)])
 
 <span class='co'># Fit a decision tree as a surrogate for the whole random forest</span>
-<span class='no'>dt</span> <span class='kw'>&lt;-</span> <span class='no'>TreeSurrogate</span>$<span class='fu'>new</span>(<span class='no'>mod</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: partykit</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: libcoin</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: mvtnorm</span></div><div class='input'>
+<span class='kw'>dt</span> <span class='op'>&lt;-</span> <span class='kw'>TreeSurrogate</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>)
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: partykit</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: libcoin</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: mvtnorm</span></div><div class='input'>
 <span class='co'># Plot the resulting leaf nodes</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>dt</span>)</div><div class='img'><img src='TreeSurrogate-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>dt</span>)
+</div><div class='img'><img src='TreeSurrogate-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Use the tree to predict new data</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='no'>dt</span>, <span class='no'>Boston</span>[<span class='fl'>1</span>:<span class='fl'>10</span>, ])</div><div class='output co'>#&gt; <span class='warning'>Warning: Dropping additional columns: medv</span></div><div class='output co'>#&gt;      .y.hat
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='kw'>dt</span>, <span class='kw'>Boston</span>[<span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, ])
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Dropping additional columns: medv</span></div><div class='output co'>#&gt;      .y.hat
 #&gt; 1  28.28407
 #&gt; 2  21.72564
 #&gt; 3  28.28407
@@ -264,8 +267,9 @@ Data to predict on.</p></dd>
 #&gt; 9  14.72388
 #&gt; 10 14.72388</div><div class='input'>
 <span class='co'># Extract the results</span>
-<span class='no'>dat</span> <span class='kw'>&lt;-</span> <span class='no'>dt</span>$<span class='no'>results</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>dat</span>)</div><div class='output co'>#&gt;      crim zn indus chas   nox    rm  age    dis rad tax ptratio  black lstat
+<span class='kw'>dat</span> <span class='op'>&lt;-</span> <span class='kw'>dt</span><span class='op'>$</span><span class='kw'>results</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>dat</span>)
+</div><div class='output co'>#&gt;      crim zn indus chas   nox    rm  age    dis rad tax ptratio  black lstat
 #&gt; 1 0.00632 18  2.31    0 0.538 6.575 65.2 4.0900   1 296    15.3 396.90  4.98
 #&gt; 2 0.02731  0  7.07    0 0.469 6.421 78.9 4.9671   2 242    17.8 396.90  9.14
 #&gt; 3 0.02729  0  7.07    0 0.469 7.185 61.1 4.9671   2 242    17.8 392.83  4.03
@@ -280,21 +284,24 @@ Data to predict on.</p></dd>
 #&gt; 5     3    lstat &lt;= 7.85 &amp;\n rm &lt;= 7.42 34.98483    28.28407
 #&gt; 6     3    lstat &lt;= 7.85 &amp;\n rm &lt;= 7.42 28.19257    28.28407</div><div class='input'>
 <span class='co'># It also works for classification</span>
-<span class='no'>rf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span>(<span class='no'>Species</span> ~ <span class='no'>.</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>, <span class='kw'>ntree</span> <span class='kw'>=</span> <span class='fl'>50</span>)
-<span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='no'>iris</span>[-<span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>iris</span>) <span class='kw'>==</span> <span class='st'>"Species"</span>)]
-<span class='no'>mod</span> <span class='kw'>&lt;-</span> <span class='no'>Predictor</span>$<span class='fu'>new</span>(<span class='no'>rf</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>X</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"prob"</span>)
+<span class='kw'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span>(<span class='kw'>Species</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>iris</span>, ntree = <span class='fl'>50</span>)
+<span class='kw'>X</span> <span class='op'>&lt;-</span> <span class='kw'>iris</span>[<span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>iris</span>) <span class='op'>==</span> <span class='st'>"Species"</span>)]
+<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>X</span>, type = <span class='st'>"prob"</span>)
 
 <span class='co'># Fit a decision tree as a surrogate for the whole random forest</span>
-<span class='no'>dt</span> <span class='kw'>&lt;-</span> <span class='no'>TreeSurrogate</span>$<span class='fu'>new</span>(<span class='no'>mod</span>, <span class='kw'>maxdepth</span> <span class='kw'>=</span> <span class='fl'>2</span>)
+<span class='kw'>dt</span> <span class='op'>&lt;-</span> <span class='kw'>TreeSurrogate</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, maxdepth = <span class='fl'>2</span>)
 
 <span class='co'># Plot the resulting leaf nodes</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>dt</span>)</div><div class='img'><img src='TreeSurrogate-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>dt</span>)
+</div><div class='img'><img src='TreeSurrogate-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># If you want to visualize the tree directly:</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>dt</span>$<span class='no'>tree</span>)</div><div class='img'><img src='TreeSurrogate-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>dt</span><span class='op'>$</span><span class='kw'>tree</span>)
+</div><div class='img'><img src='TreeSurrogate-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Use the tree to predict new data</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>42</span>)
-<span class='no'>iris.sample</span> <span class='kw'>&lt;-</span> <span class='no'>X</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>X</span>), <span class='fl'>10</span>), ]
-<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='no'>dt</span>, <span class='no'>iris.sample</span>)</div><div class='output co'>#&gt;           setosa versicolor  virginica
+<span class='kw'>iris.sample</span> <span class='op'>&lt;-</span> <span class='kw'>X</span>[<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='kw'>X</span>), <span class='fl'>10</span>), ]
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='kw'>dt</span>, <span class='kw'>iris.sample</span>)
+</div><div class='output co'>#&gt;           setosa versicolor  virginica
 #&gt; 49  1.0000000000 0.00000000 0.00000000
 #&gt; 65  0.0003703704 0.91111111 0.08851852
 #&gt; 74  0.0003703704 0.91111111 0.08851852
@@ -304,7 +311,8 @@ Data to predict on.</p></dd>
 #&gt; 128 0.0000000000 0.02608696 0.97391304
 #&gt; 47  1.0000000000 0.00000000 0.00000000
 #&gt; 24  1.0000000000 0.00000000 0.00000000
-#&gt; 71  0.0000000000 0.02608696 0.97391304</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='no'>dt</span>, <span class='no'>iris.sample</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"class"</span>)</div><div class='output co'>#&gt;        .class
+#&gt; 71  0.0000000000 0.02608696 0.97391304</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span>(<span class='kw'>dt</span>, <span class='kw'>iris.sample</span>, type = <span class='st'>"class"</span>)
+</div><div class='output co'>#&gt;        .class
 #&gt; 1      setosa
 #&gt; 2  versicolor
 #&gt; 3  versicolor
@@ -316,8 +324,9 @@ Data to predict on.</p></dd>
 #&gt; 9      setosa
 #&gt; 10  virginica</div><div class='input'>
 <span class='co'># Extract the dataset</span>
-<span class='no'>dat</span> <span class='kw'>&lt;-</span> <span class='no'>dt</span>$<span class='no'>results</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>dat</span>)</div><div class='output co'>#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width .node
+<span class='kw'>dat</span> <span class='op'>&lt;-</span> <span class='kw'>dt</span><span class='op'>$</span><span class='kw'>results</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>dat</span>)
+</div><div class='output co'>#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width .node
 #&gt; 1          5.1         3.5          1.4         0.2     4
 #&gt; 2          4.9         3.0          1.4         0.2     3
 #&gt; 3          4.7         3.2          1.3         0.2     4
@@ -360,7 +369,7 @@ Data to predict on.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>
