@@ -137,13 +137,13 @@
   <span class="kw">FeatureImp</span><span class="op">$</span><span class="fu">new</span>(<span class="kw">predictor</span>, loss = <span class="st">"mae"</span>)
 })
 <span class="co">#&gt; process    real </span>
-<span class="co">#&gt;   3.73s   3.73s</span>
+<span class="co">#&gt;   2.75s   2.77s</span>
 <span class="kw">bench</span>::<span class="fu"><a href="https://rdrr.io/pkg/bench/man/bench_time.html">system_time</a></span>({
   <span class="fu"><a href="https://rdrr.io/pkg/future/man/plan.html">plan</a></span>(<span class="st">"callr"</span>, workers = <span class="fl">2</span>)
   <span class="kw">FeatureImp</span><span class="op">$</span><span class="fu">new</span>(<span class="kw">predictor</span>, loss = <span class="st">"mae"</span>)
 })
 <span class="co">#&gt; process    real </span>
-<span class="co">#&gt;   3.85s   9.63s</span>
+<span class="co">#&gt;    2.6s   6.65s</span>
 </pre></div>
 <p>A little bit of improvement, but not too impressive. Parallelization is more useful in the case where the model uses a lot of features or where the feature importance computation is repeated more often to get more stable results.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit">
@@ -152,14 +152,14 @@
   <span class="kw">FeatureImp</span><span class="op">$</span><span class="fu">new</span>(<span class="kw">predictor</span>, loss = <span class="st">"mae"</span>, n.repetitions = <span class="fl">20</span>)
 })
 <span class="co">#&gt; process    real </span>
-<span class="co">#&gt;   11.2s   11.2s</span>
+<span class="co">#&gt;   8.04s   8.13s</span>
 
 <span class="kw">bench</span>::<span class="fu"><a href="https://rdrr.io/pkg/bench/man/bench_time.html">system_time</a></span>({
   <span class="fu"><a href="https://rdrr.io/pkg/future/man/plan.html">plan</a></span>(<span class="st">"callr"</span>, workers = <span class="fl">2</span>)
   <span class="kw">FeatureImp</span><span class="op">$</span><span class="fu">new</span>(<span class="kw">predictor</span>, loss = <span class="st">"mae"</span>, n.repetitions = <span class="fl">20</span>)
 })
 <span class="co">#&gt; process    real </span>
-<span class="co">#&gt;   3.87s  13.56s</span>
+<span class="co">#&gt;   2.69s   9.83s</span>
 </pre></div>
 <div id="interaction" class="section level3">
 <h3 class="hasAnchor">
@@ -172,13 +172,13 @@
   <span class="kw">Interaction</span><span class="op">$</span><span class="fu">new</span>(<span class="kw">predictor</span>)
 })
 <span class="co">#&gt; process    real </span>
-<span class="co">#&gt;   19.7s   19.7s</span>
+<span class="co">#&gt;   13.4s   13.6s</span>
 <span class="kw">bench</span>::<span class="fu"><a href="https://rdrr.io/pkg/bench/man/bench_time.html">system_time</a></span>({
   <span class="fu"><a href="https://rdrr.io/pkg/future/man/plan.html">plan</a></span>(<span class="st">"callr"</span>, workers = <span class="fl">2</span>)
   <span class="kw">Interaction</span><span class="op">$</span><span class="fu">new</span>(<span class="kw">predictor</span>)
 })
 <span class="co">#&gt; process    real </span>
-<span class="co">#&gt;   5.55s  21.48s</span>
+<span class="co">#&gt;   2.46s  11.62s</span>
 </pre></div>
 </div>
 <div id="feature-effects" class="section level3">
@@ -191,13 +191,13 @@
   <span class="kw">FeatureEffects</span><span class="op">$</span><span class="fu">new</span>(<span class="kw">predictor</span>)
 })
 <span class="co">#&gt; process    real </span>
-<span class="co">#&gt;   1.87s   1.88s</span>
+<span class="co">#&gt;   975ms   976ms</span>
 <span class="kw">bench</span>::<span class="fu"><a href="https://rdrr.io/pkg/bench/man/bench_time.html">system_time</a></span>({
   <span class="fu"><a href="https://rdrr.io/pkg/future/man/plan.html">plan</a></span>(<span class="st">"callr"</span>, workers = <span class="fl">2</span>)
   <span class="kw">FeatureEffects</span><span class="op">$</span><span class="fu">new</span>(<span class="kw">predictor</span>)
 })
 <span class="co">#&gt; process    real </span>
-<span class="co">#&gt;   20.1s   31.1s</span>
+<span class="co">#&gt;   10.3s   16.6s</span>
 </pre></div>
 </div>
 </div>
