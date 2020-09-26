@@ -138,7 +138,7 @@ to the prediction.</p>
     </div>
 
     <pre class="usage"><span class='co'># S3 method for Shapley</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>object</span>, sort = <span class='fl'>TRUE</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>object</span>, sort <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -163,19 +163,19 @@ multi.class output.</p></td>
     <div class='dont-index'><p><a href='Shapley.html'>Shapley</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='st'><a href='https://github.com/bethatkinson/rpart'>"rpart"</a></span>)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='https://github.com/bethatkinson/rpart'>"rpart"</a></span><span class='op'>)</span>
 <span class='co'># First we fit a machine learning model on the Boston housing data</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"Boston"</span>, package = <span class='st'>"MASS"</span>)
-<span class='kw'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span>(<span class='kw'>medv</span> <span class='op'>~</span> <span class='kw'>.</span>, data = <span class='kw'>Boston</span>)
-<span class='kw'>X</span> <span class='op'>&lt;-</span> <span class='kw'>Boston</span>[<span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='kw'>Boston</span>) <span class='op'>==</span> <span class='st'>"medv"</span>)]
-<span class='kw'>mod</span> <span class='op'>&lt;-</span> <span class='kw'>Predictor</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>rf</span>, data = <span class='kw'>X</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"Boston"</span>, package <span class='op'>=</span> <span class='st'>"MASS"</span><span class='op'>)</span>
+<span class='va'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span><span class='op'>(</span><span class='va'>medv</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>Boston</span><span class='op'>)</span>
+<span class='va'>X</span> <span class='op'>&lt;-</span> <span class='va'>Boston</span><span class='op'>[</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>Boston</span><span class='op'>)</span> <span class='op'>==</span> <span class='st'>"medv"</span><span class='op'>)</span><span class='op'>]</span>
+<span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='va'><a href='Predictor.html'>Predictor</a></span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='va'>rf</span>, data <span class='op'>=</span> <span class='va'>X</span><span class='op'>)</span>
 
 <span class='co'># Then we explain the first instance of the dataset with the Shapley method:</span>
-<span class='kw'>x.interest</span> <span class='op'>&lt;-</span> <span class='kw'>X</span>[<span class='fl'>1</span>, ]
-<span class='kw'>shapley</span> <span class='op'>&lt;-</span> <span class='kw'>Shapley</span><span class='op'>$</span><span class='fu'>new</span>(<span class='kw'>mod</span>, x.interest = <span class='kw'>x.interest</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>shapley</span>)
-}
+<span class='va'>x.interest</span> <span class='op'>&lt;-</span> <span class='va'>X</span><span class='op'>[</span><span class='fl'>1</span>, <span class='op'>]</span>
+<span class='va'>shapley</span> <span class='op'>&lt;-</span> <span class='va'><a href='Shapley.html'>Shapley</a></span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='va'>mod</span>, x.interest <span class='op'>=</span> <span class='va'>x.interest</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>shapley</span><span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
