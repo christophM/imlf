@@ -321,8 +321,8 @@ Ignored for categorical features</p></dd>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># We train a random forest on the Boston dataset:</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"Boston"</span>, package <span class='op'>=</span> <span class='st'>"MASS"</span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='https://www.stat.berkeley.edu/~breiman/RandomForests/'>"randomForest"</a></span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>randomForest 4.6-14</span></div><div class='output co'>#&gt; <span class='message'>Type rfNews() to see new features/changes/bug fixes.</span></div><div class='input'><span class='va'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span><span class='op'>(</span><span class='va'>medv</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>Boston</span>, ntree <span class='op'>=</span> <span class='fl'>50</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='https://github.com/bethatkinson/rpart'>"rpart"</a></span><span class='op'>)</span>
+<span class='va'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span><span class='op'>(</span><span class='va'>medv</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>Boston</span><span class='op'>)</span>
 <span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='va'><a href='Predictor.html'>Predictor</a></span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='va'>rf</span>, data <span class='op'>=</span> <span class='va'>Boston</span><span class='op'>)</span>
 
 <span class='co'># Compute the accumulated local effects for the first feature</span>
@@ -338,10 +338,7 @@ Ignored for categorical features</p></dd>
 </div><div class='img'><img src='FeatureEffect-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Since the result is a ggplot object, you can extend it:</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='http://ggplot2.tidyverse.org'>"ggplot2"</a></span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘ggplot2’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:randomForest’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    margin</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>eff</span><span class='op'>)</span> <span class='op'>+</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>eff</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='co'># Adds a title</span>
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"Partial dependence"</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='co'># Adds original predictions</span>
@@ -354,17 +351,17 @@ Ignored for categorical features</p></dd>
 <span class='va'>eff.dat</span> <span class='op'>&lt;-</span> <span class='va'>eff</span><span class='op'>$</span><span class='va'>results</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>eff.dat</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;         rm   .value .type .id
-#&gt; 1 3.561000 20.49615   pdp  NA
-#&gt; 2 3.740966 20.49615   pdp  NA
-#&gt; 3 3.920931 20.49615   pdp  NA
-#&gt; 4 4.100897 20.49615   pdp  NA
-#&gt; 5 4.280862 20.47063   pdp  NA
-#&gt; 6 4.460828 20.47006   pdp  NA</div><div class='input'>
+#&gt; 1 3.561000 19.58263   pdp  NA
+#&gt; 2 3.740966 19.58263   pdp  NA
+#&gt; 3 3.920931 19.58263   pdp  NA
+#&gt; 4 4.100897 19.58263   pdp  NA
+#&gt; 5 4.280862 19.58263   pdp  NA
+#&gt; 6 4.460828 19.58263   pdp  NA</div><div class='input'>
 <span class='co'># You can also use the object to "predict" the marginal values.</span>
 <span class='va'>eff</span><span class='op'>$</span><span class='fu'>predict</span><span class='op'>(</span><span class='va'>Boston</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, <span class='op'>]</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 22.13121 21.40123 27.92405</div><div class='input'><span class='co'># Instead of the entire data.frame, you can also use feature values:</span>
+</div><div class='output co'>#&gt; [1] 22.30267 19.58263 27.44788</div><div class='input'><span class='co'># Instead of the entire data.frame, you can also use feature values:</span>
 <span class='va'>eff</span><span class='op'>$</span><span class='fu'>predict</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>6</span>, <span class='fl'>7</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 20.41243 20.63094 27.18993</div><div class='input'>
+</div><div class='output co'>#&gt; [1] 19.58263 19.58263 27.44788</div><div class='input'>
 <span class='co'># You can reuse the pdp object for other features:</span>
 <span class='va'>eff</span><span class='op'>$</span><span class='fu'>set.feature</span><span class='op'>(</span><span class='st'>"lstat"</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>eff</span><span class='op'>)</span>
@@ -383,7 +380,7 @@ Ignored for categorical features</p></dd>
 </div><div class='output co'>#&gt; <span class='message'>Loading required namespace: yaImpute</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>eff</span><span class='op'>)</span>
 </div><div class='img'><img src='FeatureEffect-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># FeatureEffect plots also works with multiclass classification</span>
-<span class='va'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span><span class='op'>(</span><span class='va'>Species</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>iris</span>, ntree <span class='op'>=</span> <span class='fl'>50</span><span class='op'>)</span>
+<span class='va'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span><span class='op'>(</span><span class='va'>Species</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>iris</span><span class='op'>)</span>
 <span class='va'>mod</span> <span class='op'>&lt;-</span> <span class='va'><a href='Predictor.html'>Predictor</a></span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='va'>rf</span>, data <span class='op'>=</span> <span class='va'>iris</span>, type <span class='op'>=</span> <span class='st'>"prob"</span><span class='op'>)</span>
 
 <span class='co'># For some models we have to specify additional arguments for the predict</span>
