@@ -256,16 +256,16 @@ Data to predict on.</p></dd>
 <span class='co'># Use the tree to predict new data</span>
 <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>dt</span>, <span class='va'>Boston</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>, <span class='op'>]</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: Dropping additional columns: medv</span></div><div class='output co'>#&gt;      .y.hat
-#&gt; 1  27.03695
-#&gt; 2  27.03695
-#&gt; 3  27.03695
-#&gt; 4  27.03695
-#&gt; 5  27.03695
-#&gt; 6  27.03695
-#&gt; 7  20.31388
-#&gt; 8  14.40829
-#&gt; 9  14.40829
-#&gt; 10 14.40829</div><div class='input'>
+#&gt; 1  27.09110
+#&gt; 2  27.09110
+#&gt; 3  27.09110
+#&gt; 4  27.09110
+#&gt; 5  27.09110
+#&gt; 6  27.09110
+#&gt; 7  20.33612
+#&gt; 8  14.37930
+#&gt; 9  14.37930
+#&gt; 10 14.37930</div><div class='input'>
 <span class='co'># Extract the results</span>
 <span class='va'>dat</span> <span class='op'>&lt;-</span> <span class='va'>dt</span><span class='op'>$</span><span class='va'>results</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>)</span>
@@ -277,12 +277,12 @@ Data to predict on.</p></dd>
 #&gt; 5 0.06905  0  2.18    0 0.458 7.147 54.2 6.0622   3 222    18.7 396.90  5.33
 #&gt; 6 0.02985  0  2.18    0 0.458 6.430 58.7 6.0622   3 222    18.7 394.12  5.21
 #&gt;   .node                        .path   .y.hat .y.hat.tree
-#&gt; 1     3 lstat &lt;= 9.71 &amp;\n rm &lt;= 7.42 26.35030    27.03695
-#&gt; 2     3 lstat &lt;= 9.71 &amp;\n rm &lt;= 7.42 23.02780    27.03695
-#&gt; 3     3 lstat &lt;= 9.71 &amp;\n rm &lt;= 7.42 35.44577    27.03695
-#&gt; 4     3 lstat &lt;= 9.71 &amp;\n rm &lt;= 7.42 35.38813    27.03695
-#&gt; 5     3 lstat &lt;= 9.71 &amp;\n rm &lt;= 7.42 35.12110    27.03695
-#&gt; 6     3 lstat &lt;= 9.71 &amp;\n rm &lt;= 7.42 27.36560    27.03695</div><div class='input'>
+#&gt; 1     3 lstat &lt;= 9.71 &amp;\n rm &lt;= 7.42 25.42013     27.0911
+#&gt; 2     3 lstat &lt;= 9.71 &amp;\n rm &lt;= 7.42 22.34357     27.0911
+#&gt; 3     3 lstat &lt;= 9.71 &amp;\n rm &lt;= 7.42 33.90563     27.0911
+#&gt; 4     3 lstat &lt;= 9.71 &amp;\n rm &lt;= 7.42 34.40250     27.0911
+#&gt; 5     3 lstat &lt;= 9.71 &amp;\n rm &lt;= 7.42 35.38137     27.0911
+#&gt; 6     3 lstat &lt;= 9.71 &amp;\n rm &lt;= 7.42 27.79383     27.0911</div><div class='input'>
 <span class='co'># It also works for classification</span>
 <span class='va'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/randomForest/man/randomForest.html'>randomForest</a></span><span class='op'>(</span><span class='va'>Species</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>iris</span>, ntree <span class='op'>=</span> <span class='fl'>50</span><span class='op'>)</span>
 <span class='va'>X</span> <span class='op'>&lt;-</span> <span class='va'>iris</span><span class='op'>[</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>)</span> <span class='op'>==</span> <span class='st'>"Species"</span><span class='op'>)</span><span class='op'>]</span>
@@ -302,16 +302,16 @@ Data to predict on.</p></dd>
 <span class='va'>iris.sample</span> <span class='op'>&lt;-</span> <span class='va'>X</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>X</span><span class='op'>)</span>, <span class='fl'>10</span><span class='op'>)</span>, <span class='op'>]</span>
 <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>dt</span>, <span class='va'>iris.sample</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;           setosa versicolor  virginica
-#&gt; 49  1.0000000000 0.00000000 0.00000000
-#&gt; 65  0.0003703704 0.90703704 0.09259259
-#&gt; 74  0.0003703704 0.90703704 0.09259259
-#&gt; 146 0.0000000000 0.02608696 0.97391304
-#&gt; 122 0.0000000000 0.02608696 0.97391304
-#&gt; 150 0.0000000000 0.02608696 0.97391304
-#&gt; 128 0.0000000000 0.02608696 0.97391304
-#&gt; 47  1.0000000000 0.00000000 0.00000000
-#&gt; 24  1.0000000000 0.00000000 0.00000000
-#&gt; 71  0.0000000000 0.02608696 0.97391304</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>dt</span>, <span class='va'>iris.sample</span>, type <span class='op'>=</span> <span class='st'>"class"</span><span class='op'>)</span>
+#&gt; 49  0.9988000000 0.00120000 0.00000000
+#&gt; 65  0.0003703704 0.91148148 0.08814815
+#&gt; 74  0.0003703704 0.91148148 0.08814815
+#&gt; 146 0.0000000000 0.03130435 0.96869565
+#&gt; 122 0.0000000000 0.03130435 0.96869565
+#&gt; 150 0.0000000000 0.03130435 0.96869565
+#&gt; 128 0.0000000000 0.03130435 0.96869565
+#&gt; 47  0.9988000000 0.00120000 0.00000000
+#&gt; 24  0.9988000000 0.00120000 0.00000000
+#&gt; 71  0.0000000000 0.03130435 0.96869565</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>dt</span>, <span class='va'>iris.sample</span>, type <span class='op'>=</span> <span class='st'>"class"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;        .class
 #&gt; 1      setosa
 #&gt; 2  versicolor
@@ -326,34 +326,27 @@ Data to predict on.</p></dd>
 <span class='co'># Extract the dataset</span>
 <span class='va'>dat</span> <span class='op'>&lt;-</span> <span class='va'>dt</span><span class='op'>$</span><span class='va'>results</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width .node
-#&gt; 1          5.1         3.5          1.4         0.2     3
-#&gt; 2          4.9         3.0          1.4         0.2     3
-#&gt; 3          4.7         3.2          1.3         0.2     3
-#&gt; 4          4.6         3.1          1.5         0.2     3
-#&gt; 5          5.0         3.6          1.4         0.2     3
-#&gt; 6          5.4         3.9          1.7         0.4     4
-#&gt;                                         .path .y.hat.setosa .y.hat.versicolor
-#&gt; 1 Petal.Length &lt;= 1.9 &amp;\n Sepal.Length &lt;= 5.3             1                 0
-#&gt; 2 Petal.Length &lt;= 1.9 &amp;\n Sepal.Length &lt;= 5.3             1                 0
-#&gt; 3 Petal.Length &lt;= 1.9 &amp;\n Sepal.Length &lt;= 5.3             1                 0
-#&gt; 4 Petal.Length &lt;= 1.9 &amp;\n Sepal.Length &lt;= 5.3             1                 0
-#&gt; 5 Petal.Length &lt;= 1.9 &amp;\n Sepal.Length &lt;= 5.3             1                 0
-#&gt; 6  Petal.Length &lt;= 1.9 &amp;\n Sepal.Length &gt; 5.3             1                 0
-#&gt;   .y.hat.virginica .y.hat.tree.setosa .y.hat.tree.versicolor
-#&gt; 1                0              1.000                  0.000
-#&gt; 2                0              1.000                  0.000
-#&gt; 3                0              1.000                  0.000
-#&gt; 4                0              1.000                  0.000
-#&gt; 5                0              1.000                  0.000
-#&gt; 6                0              0.994                  0.006
-#&gt;   .y.hat.tree.virginica
-#&gt; 1                     0
-#&gt; 2                     0
-#&gt; 3                     0
-#&gt; 4                     0
-#&gt; 5                     0
-#&gt; 6                     0</div></pre>
+</div><div class='output co'>#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width .node               .path
+#&gt; 1          5.1         3.5          1.4         0.2     2 Petal.Length &lt;= 1.9
+#&gt; 2          4.9         3.0          1.4         0.2     2 Petal.Length &lt;= 1.9
+#&gt; 3          4.7         3.2          1.3         0.2     2 Petal.Length &lt;= 1.9
+#&gt; 4          4.6         3.1          1.5         0.2     2 Petal.Length &lt;= 1.9
+#&gt; 5          5.0         3.6          1.4         0.2     2 Petal.Length &lt;= 1.9
+#&gt; 6          5.4         3.9          1.7         0.4     2 Petal.Length &lt;= 1.9
+#&gt;   .y.hat.setosa .y.hat.versicolor .y.hat.virginica .y.hat.tree.setosa
+#&gt; 1             1                 0                0             0.9988
+#&gt; 2             1                 0                0             0.9988
+#&gt; 3             1                 0                0             0.9988
+#&gt; 4             1                 0                0             0.9988
+#&gt; 5             1                 0                0             0.9988
+#&gt; 6             1                 0                0             0.9988
+#&gt;   .y.hat.tree.versicolor .y.hat.tree.virginica
+#&gt; 1                 0.0012                     0
+#&gt; 2                 0.0012                     0
+#&gt; 3                 0.0012                     0
+#&gt; 4                 0.0012                     0
+#&gt; 5                 0.0012                     0
+#&gt; 6                 0.0012                     0</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -215,12 +215,11 @@
 <code class="sourceCode R"><span class="va">effs</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/FeatureEffects.html">FeatureEffects</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">effs</span><span class="op">)</span></code></pre></div>
 <pre><code>#&gt; Warning: UNRELIABLE VALUE: Future ('future_lapply-1') unexpectedly generated
-#&gt; random numbers without specifying argument '[future.]seed'. There is a risk that
-#&gt; those random numbers are not statistically sound and the overall results might
-#&gt; be invalid. To fix this, specify argument '[future.]seed', e.g. 'seed=TRUE'.
-#&gt; This ensures that proper, parallel-safe random numbers are produced via the
-#&gt; L'Ecuyer-CMRG method. To disable this check, use [future].seed=NULL, or set
-#&gt; option 'future.rng.onMisuse' to "ignore".</code></pre>
+#&gt; random numbers without specifying argument 'seed'. There is a risk that those
+#&gt; random numbers are not statistically sound and the overall results might be
+#&gt; invalid. To fix this, specify 'seed=TRUE'. This ensures that proper, parallel-
+#&gt; safe random numbers are produced via the L'Ecuyer-CMRG method. To disable this
+#&gt; check, use 'seed=NULL', or set option 'future.rng.onMisuse' to "ignore".</code></pre>
 <p><img src="intro_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></p>
 </div>
 <div id="surrogate-model" class="section level2">
@@ -289,13 +288,13 @@
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="va">shapley</span><span class="op">$</span><span class="va">results</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span></code></pre></div>
-<pre><code>#&gt;   feature          phi    phi.var feature.value
-#&gt; 1    crim -0.030772464 0.88726982  crim=0.02731
-#&gt; 2      zn -0.009163333 0.01266404          zn=0
-#&gt; 3   indus -0.412309000 0.65608174    indus=7.07
-#&gt; 4    chas -0.065604772 0.04865024        chas=0
-#&gt; 5     nox  0.067133048 0.37635155     nox=0.469
-#&gt; 6      rm -0.354769984 7.26420349      rm=6.421</code></pre>
+<pre><code>#&gt;   feature         phi     phi.var feature.value
+#&gt; 1    crim  0.09168211  1.12844465  crim=0.02731
+#&gt; 2      zn -0.01267333  0.01215735          zn=0
+#&gt; 3   indus -0.32093033  0.52681565    indus=7.07
+#&gt; 4    chas -0.02352600  0.01354332        chas=0
+#&gt; 5     nox  0.25966662  0.51228439     nox=0.469
+#&gt; 6      rm -1.34874957 16.65512895      rm=6.421</code></pre>
 </div>
   </div>
 
