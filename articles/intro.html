@@ -214,11 +214,12 @@
 <code class="sourceCode R"><span class="va">effs</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/FeatureEffects.html">FeatureEffects</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">effs</span><span class="op">)</span></code></pre></div>
 <pre><code>#&gt; Warning: UNRELIABLE VALUE: Future ('future_lapply-1') unexpectedly generated
-#&gt; random numbers without specifying argument 'seed'. There is a risk that those
-#&gt; random numbers are not statistically sound and the overall results might be
-#&gt; invalid. To fix this, specify 'seed=TRUE'. This ensures that proper, parallel-
-#&gt; safe random numbers are produced via the L'Ecuyer-CMRG method. To disable this
-#&gt; check, use 'seed=NULL', or set option 'future.rng.onMisuse' to "ignore".</code></pre>
+#&gt; random numbers without specifying argument 'future.seed'. There is a risk that
+#&gt; those random numbers are not statistically sound and the overall results might
+#&gt; be invalid. To fix this, specify 'future.seed=TRUE'. This ensures that proper,
+#&gt; parallel-safe random numbers are produced via the L'Ecuyer-CMRG method. To
+#&gt; disable this check, use 'future.seed=NULL', or set option 'future.rng.onMisuse'
+#&gt; to "ignore".</code></pre>
 <p><img src="intro_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></p>
 </div>
 <div id="surrogate-model" class="section level2">
