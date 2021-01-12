@@ -203,6 +203,10 @@ depending on whether the importance was calculated as difference
 between original model error and model error after permutation or as
 ratio.</p></dd>
 
+<dt><code>features</code></dt><dd><p>(<code>list</code>)<br /> Features for which importance scores are to
+be calculated. The names are the feature/group names, while the contents
+specify which feature(s) are to be permuted.</p></dd>
+
 </dl><p></div></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
@@ -223,7 +227,13 @@ ratio.</p></dd>
 <hr>
 <a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
 <p>Create a FeatureImp object</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
-<p><div class="r"></p><pre><span class='va'>FeatureImp</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='va'>predictor</span>, <span class='va'>loss</span>, compare <span class='op'>=</span> <span class='st'>"ratio"</span>, n.repetitions <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></pre><p></div></p>
+<p><div class="r"></p><pre><span class='va'>FeatureImp</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span>
+  <span class='va'>predictor</span>,
+  <span class='va'>loss</span>,
+  compare <span class='op'>=</span> <span class='st'>"ratio"</span>,
+  n.repetitions <span class='op'>=</span> <span class='fl'>5</span>,
+  features <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre><p></div></p>
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
 <p><div class="arguments"></p><dl>
@@ -249,6 +259,12 @@ original model error and model error after permutation?
 How often should the shuffling of the feature be repeated?
 The higher the number of repetitions the more stable and accurate the
 results become.</p></dd>
+
+<dt><code>features</code></dt><dd><p>(<code>character or list</code>)<br />
+For which features do you want importance scores calculated. The default
+value of <code>NULL</code> implies all features. Use a named list of character vectors
+to define groups of features for which joint importance will be calculated.
+See examples.</p></dd>
 
 </dl><p></div></p>
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Returns</h4>
@@ -315,7 +331,19 @@ plots, the median importance over the repetitions as a point.</p>
 <span class='co'># Plot the results directly</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>imp</span><span class='op'>)</span>
 </div><div class='img'><img src='FeatureImp-4.png' alt='' width='700' height='433' /></div><div class='input'>
-
+<span class='co'># We can calculate feature importance for a subset of features </span>
+<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='va'>FeatureImp</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='va'>mod</span>, loss <span class='op'>=</span> <span class='st'>"mae"</span>, features <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"crim"</span>, <span class='st'>"zn"</span>, <span class='st'>"indus"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>imp</span><span class='op'>)</span>
+</div><div class='img'><img src='FeatureImp-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'># We can calculate joint importance of groups of features</span>
+<span class='va'>groups</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+ grp1 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"crim"</span>, <span class='st'>"zn"</span>, <span class='st'>"indus"</span>, <span class='st'>"chas"</span><span class='op'>)</span>,
+ grp2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"nox"</span>, <span class='st'>"rm"</span>, <span class='st'>"age"</span>, <span class='st'>"dis"</span><span class='op'>)</span>,
+ grp3 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"rad"</span>, <span class='st'>"tax"</span>, <span class='st'>"ptratio"</span>, <span class='st'>"black"</span>, <span class='st'>"lstat"</span><span class='op'>)</span>
+<span class='op'>)</span>
+<span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='va'>FeatureImp</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='va'>mod</span>, loss <span class='op'>=</span> <span class='st'>"mae"</span>, features <span class='op'>=</span> <span class='va'>groups</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>imp</span><span class='op'>)</span>
+</div><div class='img'><img src='FeatureImp-6.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># FeatureImp also works with multiclass classification.</span>
 <span class='co'># In this case, the importance measurement regards all classes</span>
 <span class='va'>tree</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span><span class='op'>(</span><span class='va'>Species</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>iris</span><span class='op'>)</span>
@@ -326,7 +354,7 @@ plots, the median importance over the repetitions as a point.</p>
 <span class='co'># For some models we have to specify additional arguments for the predict function</span>
 <span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='va'>FeatureImp</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='va'>mod</span>, loss <span class='op'>=</span> <span class='st'>"ce"</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>imp</span><span class='op'>)</span>
-</div><div class='img'><img src='FeatureImp-5.png' alt='' width='700' height='433' /></div><div class='input'>
+</div><div class='img'><img src='FeatureImp-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># For multiclass classification models, you can choose to only compute</span>
 <span class='co'># performance for one class.</span>
 <span class='co'># Make sure to adapt y</span>
@@ -336,7 +364,7 @@ plots, the median importance over the repetitions as a point.</p>
 <span class='op'>)</span>
 <span class='va'>imp</span> <span class='op'>&lt;-</span> <span class='va'>FeatureImp</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='va'>mod</span>, loss <span class='op'>=</span> <span class='st'>"ce"</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>imp</span><span class='op'>)</span>
-</div><div class='img'><img src='FeatureImp-6.png' alt='' width='700' height='433' /></div></pre>
+</div><div class='img'><img src='FeatureImp-8.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -323,14 +323,14 @@ Single row with the instance to be explained.</p></dd>
 #&gt; Sampling from data.frame with 506 rows and 13 columns.
 #&gt; 
 #&gt; Head of results:
-#&gt;            beta x.recoded    effect x.original feature feature.value
-#&gt; rm     3.044533     6.575 20.017803      6.575      rm      rm=6.575
-#&gt; lstat -0.295320     4.980 -1.470694       4.98   lstat    lstat=4.98</div><div class='input'>
+#&gt;             beta x.recoded    effect x.original feature feature.value
+#&gt; rm     2.9437663     6.575 19.355263      6.575      rm      rm=6.575
+#&gt; lstat -0.3046023     4.980 -1.516919       4.98   lstat    lstat=4.98</div><div class='input'>
 <span class='co'># Look at the results in a table</span>
 <span class='va'>lemon</span><span class='op'>$</span><span class='va'>results</span>
-</div><div class='output co'>#&gt;            beta x.recoded    effect x.original feature feature.value
-#&gt; rm     3.044533     6.575 20.017803      6.575      rm      rm=6.575
-#&gt; lstat -0.295320     4.980 -1.470694       4.98   lstat    lstat=4.98</div><div class='input'><span class='co'># Or as a plot</span>
+</div><div class='output co'>#&gt;             beta x.recoded    effect x.original feature feature.value
+#&gt; rm     2.9437663     6.575 19.355263      6.575      rm      rm=6.575
+#&gt; lstat -0.3046023     4.980 -1.516919       4.98   lstat    lstat=4.98</div><div class='input'><span class='co'># Or as a plot</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lemon</span><span class='op'>)</span>
 </div><div class='img'><img src='LocalModel-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Reuse the object with a new instance to explain</span>
@@ -350,8 +350,8 @@ Single row with the instance to be explained.</p></dd>
 <span class='va'>lemon</span> <span class='op'>&lt;-</span> <span class='va'>LocalModel</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='va'>mod</span>, x.interest <span class='op'>=</span> <span class='va'>X</span><span class='op'>[</span><span class='fl'>1</span>, <span class='op'>]</span>, k <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
 <span class='va'>lemon</span><span class='op'>$</span><span class='va'>results</span>
 </div><div class='output co'>#&gt;                    beta x.recoded     effect x.original      feature
-#&gt; Sepal.Width   0.1815974       3.5  0.6355908        3.5  Sepal.Width
-#&gt; Petal.Length -0.2146416       1.4 -0.3004983        1.4 Petal.Length
+#&gt; Sepal.Width   0.1795038       3.5  0.6282632        3.5  Sepal.Width
+#&gt; Petal.Length -0.2157541       1.4 -0.3020557        1.4 Petal.Length
 #&gt;                 feature.value
 #&gt; Sepal.Width   Sepal.Width=3.5
 #&gt; Petal.Length Petal.Length=1.4</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>lemon</span><span class='op'>)</span>
