@@ -135,7 +135,7 @@
     <p>Compute ALE for 2 numerical features</p>
     </div>
 
-    <pre class="usage"><span class='fu'>calculate.ale.num.num</span><span class='op'>(</span><span class='va'>dat</span>, <span class='va'>run.prediction</span>, <span class='va'>feature.name</span>, <span class='va'>grid.size</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>calculate.ale.num.num</span><span class='op'>(</span><span class='va'>dat</span>, <span class='va'>run.prediction</span>, <span class='va'>feature.name</span>, <span class='va'>grid.dt1</span>, <span class='va'>grid.dt2</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,8 +153,12 @@
       <td><p>The column names of the feature for which to compute ALE</p></td>
     </tr>
     <tr>
-      <th>grid.size</th>
-      <td><p>The number of cells</p></td>
+      <th>grid.dt1</th>
+      <td><p>Data.table with single column with the grid value for feature 1</p></td>
+    </tr>
+    <tr>
+      <th>grid.dt2</th>
+      <td><p>Data.table with single column with the grid value for feature 2</p></td>
     </tr>
     </table>
 

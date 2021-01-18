@@ -135,7 +135,7 @@
     <p>Compute ALE for 2 features, one numerical, one categorical</p>
     </div>
 
-    <pre class="usage"><span class='fu'>calculate.ale.num.cat</span><span class='op'>(</span><span class='va'>dat</span>, <span class='va'>run.prediction</span>, <span class='va'>feature.name</span>, <span class='va'>grid.size</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>calculate.ale.num.cat</span><span class='op'>(</span><span class='va'>dat</span>, <span class='va'>run.prediction</span>, <span class='va'>feature.name</span>, <span class='va'>grid.dt</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,8 +153,8 @@
       <td><p>The column name of the features for which to compute ALE</p></td>
     </tr>
     <tr>
-      <th>grid.size</th>
-      <td><p>The number of intervals for the numerical feature</p></td>
+      <th>grid.dt</th>
+      <td><p>data.table with single column with grid values for the numerical feature</p></td>
     </tr>
     </table>
 

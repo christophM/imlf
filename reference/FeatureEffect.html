@@ -234,7 +234,8 @@ features.</p></dd>
   <span class='va'>feature</span>,
   method <span class='op'>=</span> <span class='st'>"ale"</span>,
   center.at <span class='op'>=</span> <span class='cn'>NULL</span>,
-  grid.size <span class='op'>=</span> <span class='fl'>20</span>
+  grid.size <span class='op'>=</span> <span class='fl'>20</span>,
+  grid.points <span class='op'>=</span> <span class='cn'>NULL</span>
 <span class='op'>)</span></pre><p></div></p>
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
@@ -262,6 +263,12 @@ features.</p></dd>
 
 <dt><code>grid.size</code></dt><dd><p>(<code><a href='https://rdrr.io/r/base/numeric.html'>numeric(1)</a></code> | <code><a href='https://rdrr.io/r/base/numeric.html'>numeric(2)</a></code>)<br />
 The size of the grid for evaluating the predictions.</p></dd>
+
+<dt><code>grid.points</code></dt><dd><p>(<code>numeric() | list(numeric(), numeric())</code>)<br />
+An optional grid along the feature. If grid.points are set, the grid.size
+argument is ignored. Provide a list of two vectors with the same order as
+in the 'feature' argument, if PDP/ALE for two features is to be computed
+with a user-defined grid.</p></dd>
 
 </dl><p></div></p>
 <p><hr>
@@ -377,7 +384,18 @@ Ignored for categorical features</p></dd>
 <span class='co'># Accumulated local effects and partial dependence plots support up to two</span>
 <span class='co'># features:</span>
 <span class='va'>eff</span> <span class='op'>&lt;-</span> <span class='va'>FeatureEffect</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='va'>mod</span>, feature <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"crim"</span>, <span class='st'>"lstat"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: yaImpute</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>eff</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;         crim zn indus chas   nox    rm  age    dis rad tax ptratio  black lstat
+#&gt;   1: 0.00632 18  2.31    0 0.538 6.575 65.2 4.0900   1 296    15.3 396.90  4.98
+#&gt;   2: 0.02731  0  7.07    0 0.469 6.421 78.9 4.9671   2 242    17.8 396.90  9.14
+#&gt;   3: 0.02729  0  7.07    0 0.469 7.185 61.1 4.9671   2 242    17.8 392.83  4.03
+#&gt;   4: 0.03237  0  2.18    0 0.458 6.998 45.8 6.0622   3 222    18.7 394.63  2.94
+#&gt;   5: 0.06905  0  2.18    0 0.458 7.147 54.2 6.0622   3 222    18.7 396.90  5.33
+#&gt;  ---                                                                           
+#&gt; 502: 0.06263  0 11.93    0 0.573 6.593 69.1 2.4786   1 273    21.0 391.99  9.67
+#&gt; 503: 0.04527  0 11.93    0 0.573 6.120 76.7 2.2875   1 273    21.0 396.90  9.08
+#&gt; 504: 0.06076  0 11.93    0 0.573 6.976 91.0 2.1675   1 273    21.0 396.90  5.64
+#&gt; 505: 0.10959  0 11.93    0 0.573 6.794 89.3 2.3889   1 273    21.0 393.45  6.48
+#&gt; 506: 0.04741  0 11.93    0 0.573 6.030 80.8 2.5050   1 273    21.0 396.90  7.88</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: yaImpute</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>eff</span><span class='op'>)</span>
 </div><div class='img'><img src='FeatureEffect-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># FeatureEffect plots also works with multiclass classification</span>
 <span class='va'>rf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/rpart/man/rpart.html'>rpart</a></span><span class='op'>(</span><span class='va'>Species</span> <span class='op'>~</span> <span class='va'>.</span>, data <span class='op'>=</span> <span class='va'>iris</span><span class='op'>)</span>
@@ -389,7 +407,18 @@ Ignored for categorical features</p></dd>
 </div><div class='img'><img src='FeatureEffect-8.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># FeatureEffect plots support up to two features:</span>
 <span class='va'>eff</span> <span class='op'>&lt;-</span> <span class='va'>FeatureEffect</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='va'>mod</span>, feature <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Sepal.Length"</span>, <span class='st'>"Petal.Length"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>eff</span><span class='op'>$</span><span class='fu'>plot</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;      Sepal.Length Sepal.Width Petal.Length Petal.Width
+#&gt;   1:          5.1         3.5          1.4         0.2
+#&gt;   2:          4.9         3.0          1.4         0.2
+#&gt;   3:          4.7         3.2          1.3         0.2
+#&gt;   4:          4.6         3.1          1.5         0.2
+#&gt;   5:          5.0         3.6          1.4         0.2
+#&gt;  ---                                                  
+#&gt; 146:          6.7         3.0          5.2         2.3
+#&gt; 147:          6.3         2.5          5.0         1.9
+#&gt; 148:          6.5         3.0          5.2         2.0
+#&gt; 149:          6.2         3.4          5.4         2.3
+#&gt; 150:          5.9         3.0          5.1         1.8</div><div class='input'><span class='va'>eff</span><span class='op'>$</span><span class='fu'>plot</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='img'><img src='FeatureEffect-9.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># show where the actual data lies</span>
 <span class='va'>eff</span><span class='op'>$</span><span class='fu'>plot</span><span class='op'>(</span>show.data <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
