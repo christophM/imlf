@@ -265,29 +265,29 @@ Single row with the instance to be explained.</p></dd>
 #&gt; 
 #&gt; 
 #&gt; Head of results:
-#&gt;   feature      phi   phi.var feature.value
-#&gt; 1    crim 0.567517  2.632206  crim=0.00632
-#&gt; 2      zn 0.000000  0.000000         zn=18
-#&gt; 3   indus 0.000000  0.000000    indus=2.31
-#&gt; 4    chas 0.000000  0.000000        chas=0
-#&gt; 5     nox 0.000000  0.000000     nox=0.538
-#&gt; 6      rm 1.570209 21.434189      rm=6.575</div><div class='input'>
+#&gt;   feature       phi   phi.var feature.value
+#&gt; 1    crim 0.3095547  1.516409  crim=0.00632
+#&gt; 2      zn 0.0000000  0.000000         zn=18
+#&gt; 3   indus 0.0000000  0.000000    indus=2.31
+#&gt; 4    chas 0.0000000  0.000000        chas=0
+#&gt; 5     nox 0.0000000  0.000000     nox=0.538
+#&gt; 6      rm 2.2868013 23.014323      rm=6.575</div><div class='input'>
 <span class='co'># Look at the results in a table</span>
 <span class='va'>shapley</span><span class='op'>$</span><span class='va'>results</span>
 </div><div class='output co'>#&gt;    feature        phi   phi.var feature.value
-#&gt; 1     crim  0.5675170  2.632206  crim=0.00632
+#&gt; 1     crim  0.3095547  1.516409  crim=0.00632
 #&gt; 2       zn  0.0000000  0.000000         zn=18
 #&gt; 3    indus  0.0000000  0.000000    indus=2.31
 #&gt; 4     chas  0.0000000  0.000000        chas=0
 #&gt; 5      nox  0.0000000  0.000000     nox=0.538
-#&gt; 6       rm  1.5702092 21.434189      rm=6.575
+#&gt; 6       rm  2.2868013 23.014323      rm=6.575
 #&gt; 7      age  0.0000000  0.000000      age=65.2
-#&gt; 8      dis -0.1634352  2.671108      dis=4.09
+#&gt; 8      dis -0.5863443  6.867283      dis=4.09
 #&gt; 9      rad  0.0000000  0.000000         rad=1
 #&gt; 10     tax  0.0000000  0.000000       tax=296
 #&gt; 11 ptratio  0.0000000  0.000000  ptratio=15.3
 #&gt; 12   black  0.0000000  0.000000   black=396.9
-#&gt; 13   lstat  4.2645827 24.686068    lstat=4.98</div><div class='input'><span class='co'># Or as a plot</span>
+#&gt; 13   lstat  4.1406006 38.654545    lstat=4.98</div><div class='input'><span class='co'># Or as a plot</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>shapley</span><span class='op'>)</span>
 </div><div class='img'><img src='Shapley-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Explain another instance</span>

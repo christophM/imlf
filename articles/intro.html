@@ -213,29 +213,22 @@
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">effs</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/FeatureEffects.html">FeatureEffects</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">effs</span><span class="op">)</span></code></pre></div>
-<pre><code>#&gt; Warning: UNRELIABLE VALUE: Future ('future_lapply-1') unexpectedly generated
-#&gt; random numbers without specifying argument 'future.seed'. There is a risk that
-#&gt; those random numbers are not statistically sound and the overall results might
-#&gt; be invalid. To fix this, specify 'future.seed=TRUE'. This ensures that proper,
-#&gt; parallel-safe random numbers are produced via the L'Ecuyer-CMRG method. To
-#&gt; disable this check, use 'future.seed=NULL', or set option 'future.rng.onMisuse'
-#&gt; to "ignore".</code></pre>
 <p><img src="intro_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></p>
 </div>
 <div id="surrogate-model" class="section level2">
 <h2 class="hasAnchor">
 <a href="#surrogate-model" class="anchor"></a>Surrogate model</h2>
 <p>Another way to make the models more interpretable is to replace the black box with a simpler model - a decision tree. We take the predictions of the black box model (in our case the random forest) and train a decision tree on the original features and the predicted outcome. The plot shows the terminal nodes of the fitted tree. The maxdepth parameter controls how deep the tree can grow and therefore how interpretable it is.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tree</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/TreeSurrogate.html">TreeSurrogate</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span>, maxdepth <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <pre><code>#&gt; Loading required package: partykit</code></pre>
 <pre><code>#&gt; Loading required package: libcoin</code></pre>
 <pre><code>#&gt; Loading required package: mvtnorm</code></pre>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">tree</span><span class="op">)</span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>We can use the tree to make predictions:</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">tree</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">Boston</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>#&gt; Warning in self$predictor$data$match_cols(data.frame(newdata)): Dropping
 #&gt; additional columns: medv</code></pre>
@@ -251,22 +244,22 @@
 <h2 class="hasAnchor">
 <a href="#explain-single-predictions-with-a-local-model" class="anchor"></a>Explain single predictions with a local model</h2>
 <p>Global surrogate model can improve the understanding of the global model behaviour. We can also fit a model locally to understand an individual prediction better. The local model fitted by <code>LocalModel</code> is a linear regression model and the data points are weighted by how close they are to the data point for wich we want to explain the prediction.</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">lime.explain</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/LocalModel.html">LocalModel</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span>, x.interest <span class="op">=</span> <span class="va">X</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span><span class="op">)</span></code></pre></div>
 <pre><code>#&gt; Loading required package: glmnet</code></pre>
 <pre><code>#&gt; Loading required package: Matrix</code></pre>
 <pre><code>#&gt; Loaded glmnet 4.1-1</code></pre>
 <pre><code>#&gt; Loading required package: gower</code></pre>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">lime.explain</span><span class="op">$</span><span class="va">results</span></code></pre></div>
 <pre><code>#&gt;               beta x.recoded    effect x.original feature feature.value
 #&gt; rm       4.4836483     6.575 29.479987      6.575      rm      rm=6.575
 #&gt; ptratio -0.5244767    15.300 -8.024493       15.3 ptratio  ptratio=15.3
 #&gt; lstat   -0.4348698     4.980 -2.165652       4.98   lstat    lstat=4.98</code></pre>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">lime.explain</span><span class="op">)</span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">lime.explain</span><span class="op">$</span><span class="fu">explain</span><span class="op">(</span><span class="va">X</span><span class="op">[</span><span class="fl">2</span>, <span class="op">]</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">lime.explain</span><span class="op">)</span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></p>
@@ -275,26 +268,26 @@
 <h2 class="hasAnchor">
 <a href="#explain-single-predictions-with-game-theory" class="anchor"></a>Explain single predictions with game theory</h2>
 <p>An alternative for explaining individual predictions is a method from coalitional game theory named Shapley value. Assume that for one data point, the feature values play a game together, in which they get the prediction as a payout. The Shapley value tells us how to fairly distribute the payout among the feature values.</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">shapley</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Shapley.html">Shapley</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">predictor</span>, x.interest <span class="op">=</span> <span class="va">X</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span><span class="op">)</span>
 <span class="va">shapley</span><span class="op">$</span><span class="fu">plot</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>We can reuse the object to explain other data points:</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">shapley</span><span class="op">$</span><span class="fu">explain</span><span class="op">(</span>x.interest <span class="op">=</span> <span class="va">X</span><span class="op">[</span><span class="fl">2</span>, <span class="op">]</span><span class="op">)</span>
 <span class="va">shapley</span><span class="op">$</span><span class="fu">plot</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>The results in data.frame form can be extracted like this:</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="va">shapley</span><span class="op">$</span><span class="va">results</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">results</span><span class="op">)</span></code></pre></div>
-<pre><code>#&gt;   feature         phi     phi.var feature.value
-#&gt; 1    crim  0.09168211  1.12844465  crim=0.02731
-#&gt; 2      zn -0.01267333  0.01215735          zn=0
-#&gt; 3   indus -0.32093033  0.52681565    indus=7.07
-#&gt; 4    chas -0.02352600  0.01354332        chas=0
-#&gt; 5     nox  0.25966662  0.51228439     nox=0.469
-#&gt; 6      rm -1.34874957 16.65512895      rm=6.421</code></pre>
+<pre><code>#&gt;   feature          phi    phi.var feature.value
+#&gt; 1    crim -0.030772464 0.88726982  crim=0.02731
+#&gt; 2      zn -0.009163333 0.01266404          zn=0
+#&gt; 3   indus -0.412309000 0.65608174    indus=7.07
+#&gt; 4    chas -0.065604772 0.04865024        chas=0
+#&gt; 5     nox  0.067133048 0.37635155     nox=0.469
+#&gt; 6      rm -0.354769984 7.26420349      rm=6.421</code></pre>
 </div>
   </div>
 
